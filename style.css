@@ -1,0 +1,915 @@
+
+
+
+/* Fonts */
+:root {
+  --default-font: "Open Sans",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Roboto",  sans-serif;
+  --nav-font: "Poppins",  sans-serif;
+}
+
+/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+:root { 
+  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
+  --default-color: #364d59; /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #52565e; /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #feb900; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+}
+
+/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+:root {
+  --nav-color: rgba(255, 255, 255, 0.55);  /* The default color of the main navmenu links */
+  --nav-hover-color: #ffffff; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: #212529; /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-hover-color: #feb900; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+}
+
+/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
+
+.light-background {
+  --background-color: #f4f7f6;
+  --surface-color: #ffffff;
+}
+
+.dark-background {
+  --background-color: #060606;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --surface-color: #252525;
+  --contrast-color: #ffffff;
+}
+
+/* Smooth scroll */
+:root {
+  scroll-behavior: smooth;
+}
+
+
+html{
+  margin: 0;
+  padding: 0;
+}
+@font-face {
+  font-family: 'Helvetica';
+  src: url('css/webfonts/Helvetica.woff2') format('woff2'),
+       url('css/webfonts/Helvetica.woff') format('woff');
+}
+body {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+/* ^^^^^^^^^^^^^^ Header ^^^^^^^^^^^^^^ */
+/* ^^^^^^^^^^^^^^ Header ^^^^^^^^^^^^^^ */
+  /* ^^^^^^^^^^^^^^ navbar ^^^^^^^^^^^^^^ */
+.navbar{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #12395d83;
+  position: fixed;
+  height: 3.9em;
+  z-index: 2;
+  top: 0;
+  padding: 1% 0;
+  padding-bottom: 0;
+}
+.navbar>div{
+  display: flex;
+}
+.navbar img {
+  top: -1em;
+  left: 1em;
+  position: absolute;
+  width: 10em;
+  height:  min-content;
+  margin: 0;
+  padding: 0;
+}
+.navbar-links{
+  margin-left: 15em;
+}
+.nav-link {
+  color: #fff;
+  text-shadow: 1px 1px 1px #292828;
+  text-decoration: none;
+  padding: 14px 16px;
+  font-size: 18px;
+}
+.navbar-icons{
+  width: 23%;
+  margin-left: 10em;
+  margin-bottom: 0.5em;
+  display: flex;
+  justify-content: space-between;
+}
+.on-collapse{
+  font-size: xx-large;
+  color: #ffffff;
+  visibility: hidden;
+}
+.navbar-icons a{
+  width: 3em;
+  margin: 3px;
+  text-decoration: none;
+  color: #12395d;
+  background-color: #bdc4cb6e;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+    /* ^^^^^^^^^^^^^^ Dropdown effect ^^^^^^^^^^^^^^ */
+.dropdown, .navbar-links>div:nth-child(1),.navbar-links>div:nth-child(4){
+  padding: 14px 16px;
+  overflow: hidden;
+}
+        /* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+        /* Dropdown content (hidden by default) */
+.dropdown-content{
+  ul {
+    list-style: none;
+    li {
+      padding: 0.6rem 0;
+    }
+    .deep-dropdown-father {
+      position: relative;
+      display: flex;
+      align-items: center;
+      i {
+        margin-left: 0.3rem;
+        font-size: 0.8rem;
+      }
+      .deep-dropdown-children {
+        display: none;
+        position: absolute;
+        right: -9.9rem;
+        border-radius: 1rem;
+        top: 1rem;
+        padding: 0 2rem;
+        background-color: #bdc4bd;
+        transform: translateX(-2rem);
+        opacity: 0; 
+        transition: all 0.5s;
+      }
+    }
+  }
+ 
+}
+.navbar-links>div:hover{
+  border-radius: 0.5em 0.5em 0 0;
+  background-color: #bdc4bd;
+}
+.navbar-links>div:last-child{
+  border-radius: 0.5em;
+}
+.navbar-links>div:hover>.nav-link{
+  transition: color 0.5s ease-in-out;
+  color: #f2800a;
+}
+        /* Show the dropdown menu on hover */
+.navbar:hover .dropdown-content,.deep-dropdown-children{
+  display: block;
+}
+.dropdown-content:hover>ul>.deep-dropdown-father{
+  .deep-dropdown-children{
+    display: block;
+  }
+}
+.dropdown-content>ul>.deep-dropdown-father:hover{
+  .deep-dropdown-children{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.dropdown>a:hover~.dropdown-content,.dropdown-content:hover{
+  transform: translateY(0);
+  opacity: 1;
+}
+.blog-section+.dropdown-content{
+  left:37em;
+}
+.product-section+.dropdown-content{
+  left:27em;
+}
+.product-section+.dropdown-content>ul>.deep-dropdown-father>.deep-dropdown-children{
+  right: -11.3rem;
+}
+.contact-section+.dropdown-content{
+  left:43em;
+}
+.dropdown-content a{
+  text-decoration: none;
+  color: #262121;
+  transition: all 0.3s ease;
+}
+.dropdown-content a:hover{
+  color: #f2800a;
+  letter-spacing: 1px;
+}
+    /* ^^^^^^^^^^^^^^(END) Dropdown effect ^^^^^^^^^^^^^^ */
+
+  /* ^^^^^^^^^^^^^^ navbar-icons ^^^^^^^^^^^^^^ */
+.navbar.scrolled {
+    background-color: #ffffff;
+    transition: background-color 200ms linear;
+    font-weight:300;
+    z-index: 1;
+}
+
+/* Change text color inside .nav-link when scrolled */
+.navbar.scrolled .nav-link {
+    color: #f2800a;
+}
+
+  /* ^^^^^^^^^^^^^^(END) navbar ^^^^^^^^^^^^^^ */
+
+  /* ^^^^^^^^^^^^^^ backgrounds ^^^^^^^^^^^^^^ */
+  .banner1,.banner2{
+    background-image: url(assets/imgs/header/background2.png);
+    width: 100vw;
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+    color: #12395d;
+  }
+  .content1,.content2{
+    display: flex;
+    height: 100vh;
+  }
+  .content1>div,.content2>div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 4.9em;
+    width: 100vw;
+    background-color: #bdc4cb4d;
+  }
+  .banner2{
+    color: #ffffff;
+    background-image: url(assets/imgs/header/background1.webp);
+  }
+  .content2>div{
+    margin-right: 15vw;
+    background-color:#12395d83;
+  }
+  .content1>div>*,.content2>div>*{
+    margin-inline: 15vw;
+  }
+  .aligny{
+    display: flex;
+    flex-direction: column;
+    font-size: xx-large;
+    font-weight: 800;
+    width: fit-content;
+  }
+  .aligny>span:last-child{
+    align-self: flex-end;
+  }
+  .content1 p{
+    width: 60%;
+  }
+  .content1 button,.content2 button,footer button{
+    padding: 10px 20px;
+    margin-top: 3em;
+    background-color: #7db0de;
+    border: none;
+    color: white;
+    font-weight: bold;
+    width: 11em;
+    cursor: pointer;
+    border-radius: 5px;
+    outline: none;
+    transition: background-color 0.3s ease;
+  }
+  .content1 button:hover,.content2 button:hover{
+    background-color: #1d5c96;
+  }
+  /* ^^^^^^^^^^^^^^(END) backgrounds ^^^^^^^^^^^^^^ */
+/* ^^^^^^^^^^^^^^(END) Header ^^^^^^^^^^^^^^ */
+/* ^^^^^^^^^^^^^^(END) Header ^^^^^^^^^^^^^^ */
+/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+/* ^^^^^^^^^^^^^^ main ^^^^^^^^^^^^^^ */
+/* ^^^^^^^^^^^^^^ main ^^^^^^^^^^^^^^ */
+  /* ^^^^^^^^^^^^^^ Services ^^^^^^^^^^^^^^ */
+  hr{
+    width: 91%;
+    color: #7c6b65;
+    margin: 0;
+    margin-bottom: 2em;
+  }
+  .from-left{
+    align-self: flex-start;
+  }
+  .from-right{
+    align-self: flex-end;
+  }
+  main{
+    display: flex;
+    flex-direction: column;
+  }
+  main h2{
+    margin-left: 2em;
+  }
+  .our-services{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100vw;
+  }
+  .service-block{
+    display: flex;
+    flex-direction: column;
+  }
+  .service-block:nth-child(odd){
+    margin-bottom: 3em;
+  }
+  .service-block:nth-child(even){
+    margin-top: 3em;
+  }
+  .half{
+    margin: 0 0.2em;
+  }
+  .half>div{
+    position: relative;
+    overflow: hidden;
+  }
+  .half>div>div{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #ffffff;
+    align-items: center;
+    padding: 0.5em;
+    padding-left: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  .half>div:hover>img{
+    transform: scale(1.2);
+  }
+  .service-block img{
+    width: 20vw;
+    z-index: -1;
+    transition: transform 0.5s;
+  }
+  .half h3{
+    text-align:left;
+    align-self: start;
+    padding-left: 0.5em;
+    width: 50%;
+    margin-left: 0;
+    padding-bottom: 0.5em;
+    border-bottom: 3px solid #f2800a;
+  }
+  .half a{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 1em;
+    color:#ffffff;
+    text-decoration: none;
+  }
+  /* ^^^^^^^^^^^^^^(END) Services ^^^^^^^^^^^^^^ */
+  /* ^^^^^^^^^^^^^^ Client Testimonals ^^^^^^^^^^^^^^ */
+.testmonials{
+  display: flex;
+  width: 100%;
+  margin-bottom: 3em;
+}
+.testmonials>div:first-child{
+  position: relative;
+  z-index: -1;
+  overflow: hidden;
+  text-align: center;
+  color: #ffffff;
+  background-color: #12395d;
+  -webkit-clip-path: polygon(0% 0%, 100% 0, 100% 68%, 90% 100%, 0% 100%);
+  clip-path: polygon(0% 0%, 100% 0, 100% 68%, 90% 100%, 0% 100%);
+}
+.testmonials>div:first-child>img{
+  position: absolute;
+  top:-225%;
+  left: 31%;
+  width: 270%;
+  filter:  brightness(80%) contrast(80%);
+  z-index: -1;
+}
+.testmonials>div:last-child{
+  padding:1em;
+  width: 50%;
+  box-shadow: 10px 10px 5px 0px rgba(128, 128, 128, 0.5);
+  background-color: #bdc4bd;
+}
+.testmonials h2{
+  margin-right: 1em;
+  text-align: right;
+}
+.testmonials>div{
+  width: 45%;
+}
+.testmonials>div:last-child{
+  display: flex;
+  color: #12395d;
+}
+.testmonials>div:nth-child(2)>div:nth-child(2){
+  display: flex;
+  flex-direction: column;
+}
+.testmonials p:nth-child(2),.testmonials p:nth-child(3){
+  align-self: flex-end;
+  margin: 1px 0;
+}
+.testmonials .test-icon {
+  display: flex;
+  flex-direction: column;
+  width: 120px;
+  height: 120px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-right: 1rem;
+  padding: 0 2rem;
+}
+.icon-holder {
+  background-color: rgb(239, 169, 77);
+  text-align: center;
+  border-radius: 50%;
+  padding: 1.5rem 1.5rem;
+  font-size: 20px;
+}
+.testmonials .right-test {
+  align-items: center;
+  
+}
+  /* ^^^^^^^^^^^^^^(END) Services ^^^^^^^^^^^^^^ */
+/* ^^^^^^^^^^^^^^(END) main ^^^^^^^^^^^^^^ */
+/* ^^^^^^^^^^^^^^(END) main ^^^^^^^^^^^^^^ */
+/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+/* ^^^^^^^^^^^^^^ footer ^^^^^^^^^^^^^^ */
+/* ^^^^^^^^^^^^^^ footer ^^^^^^^^^^^^^^ */
+footer{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  margin: 0;
+}
+.footer-icons { 
+  background: linear-gradient(0.25turn, #12395d, #7db0de, #12395d);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.footer-icons div{
+  color: #ffffff;
+  font-size:x-large;
+  padding: 1px;
+}
+footer>div:last-child{
+  display: flex;
+  overflow-y: hidden;
+  width: 100%;
+}
+footer p:first-child{
+  color: #f2800a;
+}
+footer>div:last-child>div{
+  width: 50%;
+  height: fit-content;
+}
+.footer-img+div{
+  position: absolute;
+  left:5em;
+}
+footer p:nth-child(2){
+  font-size: x-large;
+}
+.footer-img{
+  position: relative;
+}
+.footer-img img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: -1;
+}
+footer>div:last-child>div:last-child{
+  display: flex;
+  flex-direction: column;
+  background-color: #12395d;
+}
+.links-with-buttons{
+  padding: 5em;
+  display: flex;
+  justify-content: space-between;
+}
+.footer-img+div button{
+  background-color: #f2800a;
+
+}
+.footer-img+div button:hover{
+  background-color: #efa94d;
+}
+.footer-img+div{
+  width: 40%;
+  margin-top: 7%;
+}
+.footer-img+div>p:nth-child(2){
+  margin: 0 3em 0 0;
+  font-size: xx-large;
+}
+.footer-buttons{
+  display: flex;
+  flex-direction: column;
+}
+.footer-buttons button{
+  background-color: transparent;
+  border:1px solid #7db0de
+}
+.footer-buttons button:hover{
+  background-color: #7db0de;
+}
+.quick-links>ul{
+  list-style: none;
+}
+.quick-links>ul i{
+  margin-right: 0.5em;
+}
+.footer-icons{
+  height: 3.5em;
+}
+.footer-icons>div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 2em;
+}
+.footer-icons a{
+  width: 80%;
+  height:80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #12395d;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+.quick-links a{
+  text-decoration: none;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+.quick-links a:hover{
+  letter-spacing: 1px;
+  color: #f2800a;
+}
+.policy{
+  text-align: center;
+  padding: 0.5em;
+}
+/* ^^^^^^^^^^^^^^(END) footer ^^^^^^^^^^^^^^ */
+/* ^^^^^^^^^^^^^^(END) footer ^^^^^^^^^^^^^^ */
+.colored{
+  color: #7db0de;
+}
+/* ^^^^^^^^^^^^^^ responsive ^^^^^^^^^^^^^^ */
+/* ^^^^^^^^^^^^^^ responsive ^^^^^^^^^^^^^^ */
+
+/* ^^^^^^^^^^^^^^(END) responsive ^^^^^^^^^^^^^^ */
+/* ^^^^^^^^^^^^^^(END) responsive ^^^^^^^^^^^^^^ */
+@media(max-width:1320px){
+  .navbar-icons{
+    margin-left: 0.5em;
+  }
+}
+@media(max-width:1200px){
+  .navbar-icons{
+    margin-left: 0;
+  }
+  .navbar-links{
+    margin-left: 9em;
+  }
+}
+@media(max-width:1073px){
+  .navbar-links{
+    margin-left: 7em;
+  }
+}
+@media(max-width:992px){
+  .navbar{
+    height: 3.5em;
+  }
+  .navbar-links{
+    visibility: collapse;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .nav-link{
+    margin: 0 0.5em;
+  }
+  .navbar-icons{
+    height: 3em;
+    margin: 0;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .navbar-icons a{
+    height: 100%;
+    margin: 0.5em;
+  }
+  .on-collapse{
+    margin-top: 0.5em;
+    margin-right: 50%;
+    visibility: visible;
+  }
+  .testmonials>div:first-child>img{
+    top:-60%;
+    left: 39%;
+  }
+  footer>div{
+    width: 100%;
+  }
+  footer>div:nth-child(2){
+    flex-direction: column;
+  }
+  footer>div:nth-child(2)>div{
+    width: 100%;
+  }
+  footer>div:nth-child(2)>div:nth-child(1){
+    height: 21em;
+  }
+  .footer-img+div{
+    width: 100%;
+  }
+  .testmonials{
+    flex-direction: column;
+  }
+  .testmonials>div{
+    width: 100%;
+  }
+  .testmonials>div:nth-child(1){
+    height: 13em;
+  }
+  .right-test>div{
+    width: 100em;
+  }
+}
+
+ /* ================= */
+ @media(max-width:769px){
+  .banner2 {
+    height: 120vh;
+    margin-bottom: 5%;
+  } 
+  .content2>div {
+    margin-right: 0vw;
+    background-color: #12395d83;
+}
+.banner2 p{
+position: relative;
+    right: 8%;
+}
+.banner2 h2{
+  position: relative;
+    right: 8%;
+}
+.banner2 button{
+  position: relative;
+    bottom: 5%;
+    left: -34px;
+}
+.service {
+  height: 491vh;
+}
+.our-services {
+  display: block;
+}
+.service-block img {
+  width: 83vw;
+  margin-left: 7%;
+  z-index: -1;
+  transition: transform 0.5s;
+}
+.half>div>div {
+  left: 8%;
+}
+#right-test {
+  display: block;
+  width: 87%;
+  height: 59vh;
+}
+.testmonials p{
+  width: 18%;
+    text-align: center;
+}
+.testmonials .test-icon {
+  margin-left: 18%;
+}
+.footer-img img {
+  height: 46vh;
+    object-fit: cover;
+}
+.links-with-buttons {
+  position: relative;
+}
+.quick-links>ul {
+  position: relative;
+    left: -91%;
+    width: 100%;
+}
+.quick-links span{
+  position: relative;
+    left: -51%;
+}
+.testmonials p:nth-child(2), .testmonials p:nth-child(3) {
+  align-self: flex-start;
+  margin: 1px 0;
+}
+
+.navbar{
+  height: 17em;
+    width: 25%;
+}
+.navbar-links {
+  margin: 0 43px;
+}
+
+  .fa-solid, .fas {
+      position: absolute;
+      left: 79%;
+      top: 9%;
+  }
+ }
+ /* ============================================= */
+
+
+
+ /*** Header ***/
+@media (max-width: 768px) {
+  .header-carousel .owl-carousel-item {
+      position: relative;
+      min-height: 500px;
+  }
+  
+  .header-carousel .owl-carousel-item img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+  }
+
+  .header-carousel .owl-carousel-item h5,
+  .header-carousel .owl-carousel-item p {
+      font-size: 14px !important;
+      font-weight: 400 !important;
+  }
+
+  .header-carousel .owl-carousel-item h1 {
+      font-size: 30px;
+      font-weight: 600;
+  }
+}
+
+.header-carousel .owl-nav {
+  position: absolute;
+  top: 50%;
+  right: 8%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+}
+
+.header-carousel .owl-nav .owl-prev,
+.header-carousel .owl-nav .owl-next {
+  margin: 7px 0;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  background: transparent;
+  border: 1px solid #FFFFFF;
+  border-radius: 45px;
+  font-size: 22px;
+  transition: .5s;
+}
+
+.header-carousel .owl-nav .owl-prev:hover,
+.header-carousel .owl-nav .owl-next:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+
+
+.breadcrumb-item + .breadcrumb-item::before {
+  color: var(--light);
+}
+
+.owl-carousel .owl-stage-outer {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+.header-carousel .owl-carousel-item h5,
+.header-carousel .owl-carousel-item p {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+}
+.header-carousel .owl-carousel-item h1 {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+
+@media (max-width: 768px) {
+  .header-carousel .owl-carousel-item img {
+      position: absolute;
+      width: 100%;
+      height: 167%;
+      object-fit: cover;
+  }
+  .header-carousel .owl-carousel-item{
+    position: relative;
+    top: 50%;
+  }
+
+@media (max-width: 768px) {
+    .header-carousel .owl-carousel-item h1 {
+        font-size: 30px;
+        font-weight: 600;
+        margin-left: -27px;
+        width: 273px;
+    }
+}
+.header-carousel .owl-carousel-item h5, .header-carousel .owl-carousel-item p {
+  font-size: 19px !important;
+  font-weight: 400 !important;
+  color: white;
+  position: relative;
+  font-weight: bold;
+  left: -7%;
+  width: 276px;
+}
+.header-carousel .owl-carousel-item h5, .header-carousel .owl-carousel-item p {
+  font-size: 21px !important;
+  font-weight: 400 !important;
+  color: white;
+  font-weight: bold;
+}
+ #text{
+  position: relative;
+    top: 310px;
+ }
+}
+
+.header-carousel .owl-carousel-item h5, .header-carousel .owl-carousel-item p {
+  font-size: 25px !important;
+  font-weight: 400 !important;
+  color: white;
+  font-weight: bold;
+}
+#text {
+  margin-top: -39%;
+  margin-left: 44px;
+}
+
+
+
+
