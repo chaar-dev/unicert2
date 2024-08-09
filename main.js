@@ -17,16 +17,6 @@
 
 
 
-  
-  
-
-  
-  
-
-
-
-
-
   // Header carousel
   $(".header-carousel").owlCarousel({
       autoplay: false,

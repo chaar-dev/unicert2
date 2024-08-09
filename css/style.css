@@ -2063,6 +2063,16 @@ footer>div:last-child>div:last-child{
   color: #2f83d6;
 
 }
+@media (max-width: 769px) {
+  .mobile-nav-toggle {
+      color: salmon;
+      font-size: 28px;
+      line-height: 0;
+      margin-right: 10px;
+      cursor: pointer;
+      transition: color 0.3s;
+  }
+}
 
 
 

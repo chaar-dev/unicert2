@@ -23,6 +23,7 @@
     <!-- Libraries Stylesheet -->
     <link href="lib/animate/animate.min.css" rel="stylesheet">
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -157,14 +158,14 @@
 
      
     <footer>
-      <div class="footer-icons">
+      <div class="footer-icons" data-aos="fade-in" data-aos-duration="1000">
           <div><a href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a></div>
           <div><a href="https://twitter.com/home"><i class="fa-brands fa-x-twitter"></i></a></div>
           <div><a href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin-in"></i></a></div>
           <div><a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a></div>
       </div>
       <div>
-          <div>
+          <div data-aos="fade-up" data-aos-duration="1000">
               <div class="footer-img">
                   <img src="assets/imgs/footer/footer-background.jfif" alt="">
               </div>
@@ -174,7 +175,7 @@
                   <button>Get Offers</button>
               </div>
           </div>
-          <div>
+          <div data-aos="fade-down" data-aos-duration="1000">
               <div class="links-with-buttons">
                   <div class="quick-links">
                       <span>Quick links</span>
@@ -219,6 +220,10 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script src="service.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
 </body>
 
 </html>

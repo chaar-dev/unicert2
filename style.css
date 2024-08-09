@@ -911,5 +911,206 @@ position: relative;
 }
 
 
+/* ================== */
+/* ^^^^^^^^^^^^^^ Header ^^^^^^^^^^^^^^ */
+  /* ^^^^^^^^^^^^^^ navbar ^^^^^^^^^^^^^^ */
+  .navbar{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #12395d83;
+    position: fixed;
+    height: 3.9em;
+    z-index: 2;
+    top: 0;
+    padding: 1% 0;
+    padding-bottom: 0;
+  }
+  .navbar>div{
+    display: flex;
+  }
+  .navbar img {
+    top: -1em;
+    left: 1em;
+    position: absolute;
+    width: 10em;
+    height:  min-content;
+    margin: 0;
+    padding: 0;
+  }
+  .navbar-links{
+    margin-left: 15em;
+  }
+  .nav-link {
+    color: #fff;
+    text-shadow: 1px 1px 1px #292828;
+    text-decoration: none;
+    padding: 14px 16px;
+    font-size: 18px;
+  }
+  .navbar-icons{
+    width: 23%;
+    margin-left: 10em;
+    margin-bottom: 0.5em;
+    display: flex;
+    justify-content: space-between;
+  }
+  .on-collapse{
+    font-size: xx-large;
+    color: #ffffff;
+ 
+  }
+  .navbar-icons a{
+    width: 3em;
+    margin: 3px;
+    text-decoration: none;
+    color: #12395d;
+    background-color: #bdc4cb6e;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+      /* ^^^^^^^^^^^^^^ Dropdown effect ^^^^^^^^^^^^^^ */
+  .dropdown, .navbar-links>div:nth-child(1),.navbar-links>div:nth-child(4){
+    padding: 14px 16px;
+    overflow: hidden;
+  }
+          /* Dropdown button */
+  .dropdown .dropbtn {
+    font-size: 16px;  
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+          /* Dropdown content (hidden by default) */
+  .dropdown-content{
+    ul {
+      list-style: none;
+      li {
+        padding: 0.6rem 0;
+      }
+      .deep-dropdown-father {
+        position: relative;
+        display: flex;
+        align-items: center;
+        i {
+          margin-left: 0.3rem;
+          font-size: 0.8rem;
+        }
+        .deep-dropdown-children {
+          display: none;
+          position: absolute;
+          right: -9.9rem;
+          border-radius: 1rem;
+          top: 1rem;
+          padding: 0 2rem;
+          background-color: #bdc4bd;
+          transform: translateX(-2rem);
+          opacity: 0; 
+          transition: all 0.5s;
+        }
+      }
+    }
+    display: none;
+    left:19em;
+    position: absolute;
+    border-radius: 0 0 0.5em 0.5em;
+    top:4.7em;
+    width: 20%;
+    max-height: 100em;
+    color: #000;
+    background: #bdc4bd;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 4;
+    transform: translateY(5rem);
+    opacity: 0;
+    transition: all 0.5s;
+  }
+  .navbar-links>div:hover{
+    border-radius: 0.5em 0.5em 0 0;
+    background-color: #bdc4bd;
+  }
+  .navbar-links>div:last-child{
+    border-radius: 0.5em;
+  }
+  .navbar-links>div:hover>.nav-link{
+    transition: color 0.5s ease-in-out;
+    color: #f2800a;
+  }
+          /* Show the dropdown menu on hover */
+  .navbar:hover .dropdown-content,.deep-dropdown-children{
+    display: block;
+  }
+  .dropdown-content:hover>ul>.deep-dropdown-father{
+    .deep-dropdown-children{
+      display: block;
+    }
+  }
+  .dropdown-content>ul>.deep-dropdown-father:hover{
+    .deep-dropdown-children{
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  .dropdown>a:hover~.dropdown-content,.dropdown-content:hover{
+    transform: translateY(0);
+    opacity: 1;
+  }
+  .blog-section+.dropdown-content{
+    left:37em;
+  }
+  .product-section+.dropdown-content{
+    left:27em;
+  }
+  .product-section+.dropdown-content>ul>.deep-dropdown-father>.deep-dropdown-children{
+    right: -11.3rem;
+  }
+  .contact-section+.dropdown-content{
+    left:43em;
+  }
+  .dropdown-content a{
+    text-decoration: none;
+    color: #262121;
+    transition: all 0.3s ease;
+  }
+  .dropdown-content a:hover{
+    color: #f2800a;
+    letter-spacing: 1px;
+  }
 
 
+
+
+  @media (max-width: 769px) {
+    .fa-solid, .fas {
+      position: absolute;
+      left: 80%;
+      top: 29%;
+  }
+    .navbar {
+      width: 25%;
+      display: flex;
+      justify-content: space-between;
+      background-color: #12395d83;
+      position: fixed;
+      height: 3.9em;
+      z-index: 2;
+      top: 0;
+      padding: 1% 0;
+      padding-bottom: 0;
+  }
+  .navbar-links{
+    position: relative;
+    right: 74%;
+  }
+  .navbar-icons{
+    position: relative;
+    right: 21%;
+  }
+  
+}

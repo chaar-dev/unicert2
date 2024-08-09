@@ -1300,6 +1300,17 @@ footer>div:last-child>div:last-child{
   max-height: 112px;
 }
 
+@media (max-width: 769px) {
+  .mobile-nav-toggle {
+      color: white;
+      font-size: 31px;
+      line-height: 0;
+      margin-right: 29px;
+      cursor: pointer;
+      transition: color 0.3s;
+  }
+}
+
 
 
 

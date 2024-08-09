@@ -24,6 +24,8 @@
      <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
      
 </head>
 <body>
@@ -83,15 +85,15 @@
                             <li class="deep-dropdown-father">
                                 <span>Deep Dropdown</span><i class="fa-solid fa-chevron-right"></i>
                                 <ul class="deep-dropdown-children">
-                                    <li><a href="#">Driven service 1</a></li>
-                                    <li><a href="#">Driven service 2</a></li>
-                                    <li><a href="#">Driven service 3</a></li>
-                                    <li><a href="#">Driven service 4</a></li>
+                                    <li style="color: white;"><a href="#">Driven service 1</a></li>
+                                    <li style="color: white;"><a href="#">Driven service 2</a></li>
+                                    <li style="color: white;"><a href="#">Driven service 3</a></li>
+                                    <li style="color: white;"><a href="#">Driven service 4</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">service 2</a></li>
-                            <li><a href="#">service 3</a></li>
-                            <li><a href="#">service 4</a></li>
+                            <li style="color: white;"><a href="#">service 2</a></li>
+                            <li style="color: white;"><a href="#">service 3</a></li>
+                            <li style="color: white;"><a href="#">service 4</a></li>
                         </ul>
                     </div>
                 </div>
@@ -251,14 +253,14 @@
 
 
     <footer>
-        <div class="footer-icons">
+        <div class="footer-icons" data-aos="fade-in" data-aos-duration="1000">
             <div><a href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a></div>
             <div><a href="https://twitter.com/home"><i class="fa-brands fa-x-twitter"></i></a></div>
             <div><a href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin-in"></i></a></div>
             <div><a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a></div>
         </div>
         <div>
-            <div>
+            <div data-aos="fade-up" data-aos-duration="1000">
                 <div class="footer-img">
                     <img src="assets/imgs/footer/footer-background.jfif" alt="">
                 </div>
@@ -268,7 +270,7 @@
                     <button>Get Offers</button>
                 </div>
             </div>
-            <div>
+            <div data-aos="fade-down" data-aos-duration="1000">
                 <div class="links-with-buttons">
                     <div class="quick-links">
                         <span>Quick links</span>
@@ -313,6 +315,10 @@
     <script src="app.js"></script>
     <script src="main.js"></script>
     <script src="dist/js/aos.js"></script>
-    <script>AOS.init();</script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
 </body>
 </html>
